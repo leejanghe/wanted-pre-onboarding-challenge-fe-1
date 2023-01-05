@@ -7,13 +7,18 @@ import AppRouter from "./router/AppRouter";
 // css초기화
 const GlobalResetStyle = createGlobalStyle`
   ${reset}
+  body {
+    background-color: #f5f5f5;
+  }
 `;
 function App() {
-  console.log(localStorage.token);
-
+  // console.log(localStorage.token);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  // 로그인(토큰) 여부에 따른 페이지 이동
+  // todo1: 토큰 존재 여부에 따른 경료 이동
+  // todo2: 토큰 없을 경우 사용자에게 알리기 (alert)
   useEffect(() => {
     if (localStorage.token) {
       setIsLoggedIn(true);
@@ -29,11 +34,11 @@ function App() {
       }
     }
   }, [window.location.pathname, navigate, isLoggedIn]);
-  console.log("isLoggedIn", isLoggedIn);
+  // console.log("isLoggedIn", isLoggedIn);
   return (
     <>
       <GlobalResetStyle />
-      <AppRouter />
+      <AppRouter isLoggedIn={isLoggedIn} />
     </>
   );
 }

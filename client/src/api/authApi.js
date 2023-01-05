@@ -1,5 +1,4 @@
-import axios from "axios";
-const instance = axios.create({ baseURL: "http://localhost:8080" });
+import instance from "./instance";
 
 // 로그인, 회원가입 API
 const authAPI = {

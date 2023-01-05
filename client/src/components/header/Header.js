@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { HeaderWrap } from "./Header.styled";
 
 function Header({ isLoggedIn }) {
-  //   console.log("selectedNav", selectedNav, window.location.pathname, 12);
   const navigate = useNavigate();
-
+  //   console.log(isLoggedIn, "isLoggedIn");
   // 로그아웃
   const onClickSignOut = () => {
     localStorage.removeItem("token");
@@ -15,7 +14,14 @@ function Header({ isLoggedIn }) {
   return (
     <HeaderWrap>
       <div className="menuText">
-        <span onClick={onClickSignOut}>로그아웃</span>
+        {isLoggedIn ? (
+          <>
+            <span>Wanted-pre-onboarding-challenge ToDo-List</span>
+            <span onClick={onClickSignOut}>로그아웃</span>
+          </>
+        ) : (
+          <span>Wanted-pre-onboarding-challenge ToDo-List</span>
+        )}
 
         {/* <span>회원가입</span> */}
       </div>

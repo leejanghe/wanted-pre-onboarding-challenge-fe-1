@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import authAPI from "../../api/authApi";
 import { useNavigate } from "react-router-dom";
-import { BackgroundWrapper } from "./AuthForm.styled";
+import { BackgroundWrapper } from "./AuthStyle.styled";
 
 function AuthForm(props) {
   const [email, setEmail] = useState("");
@@ -12,6 +12,8 @@ function AuthForm(props) {
   const navigate = useNavigate();
 
   // 이메일, 비밀번호 입력시 유효성 검사 및 택스트 관리
+  // todo1: 이메일 조건 : 최소 @, . 포함
+  // todo2: 비밀번호 조건 : 최소 8자리
   const textOnChange = (event) => {
     const {
       target: { name, value },
@@ -36,18 +38,19 @@ function AuthForm(props) {
   // 회원가입 & 로그인 로직
   // 로그인시 로컬에 토큰 저장
   // 회원가입시 로그인 컴포넌트로 상태 변경
-  const authSign = async (e) => {
-    e.preventDefault();
+  // todo1: 로그인시 로컬 스토리지에 토큰 저장
+  const authSign = async (event) => {
+    event.preventDefault();
     try {
       let data;
       if (signAcount) {
         data = await authAPI.signIn({ email, password });
         localStorage.setItem("token", data.token);
-        console.log(data);
+        // console.log(data);
         navigate("/");
       } else {
         data = await authAPI.signUp({ email, password });
-        console.log(data);
+        // console.log(data);
         setSignAcount(true);
       }
     } catch (error) {
@@ -87,6 +90,7 @@ function AuthForm(props) {
           </div>
 
           <div className={"btnForm"}>
+            {/* todo: 이메일, 비밀번호 모두입력 및 조건 만족시 버튼 활성화 */}
             <button
               className={passEmail && passPwd ? "active" : undefined}
               type="submit"

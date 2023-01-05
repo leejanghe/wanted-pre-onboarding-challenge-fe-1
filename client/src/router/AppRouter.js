@@ -6,10 +6,11 @@ import TodoPage from "../pages/Todo/TodoPage";
 function AppRouter({ isLoggedIn }) {
   return (
     <>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Routes>
         <Route exact path="/" element={<TodoPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path=":id" element={<TodoPage />} />
       </Routes>
     </>
   );

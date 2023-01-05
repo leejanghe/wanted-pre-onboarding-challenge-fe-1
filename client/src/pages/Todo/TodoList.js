@@ -10,9 +10,9 @@ const TodoList = ({ todoList, setTodoList, setDetail }) => {
   const [content, setContent] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [userId, setUserId] = useState("");
-  useEffect(() => {
-    getTodoList();
-  }, []);
+  //   useEffect(() => {
+  //     getTodoList();
+  //   }, []);
   console.log("todoList", todoList);
 
   // todo & content 값 변경
@@ -28,10 +28,10 @@ const TodoList = ({ todoList, setTodoList, setDetail }) => {
   };
 
   // todo 리스트 조회
-  const getTodoList = async () => {
-    const { data } = await todoAPI.getTodoList();
-    setTodoList(data);
-  };
+  //   const getTodoList = async () => {
+  //     const { data } = await todoAPI.getTodoList();
+  //     setTodoList(data);
+  //   };
 
   // todo 생성
   const createTodoList = async (event) => {
@@ -52,12 +52,6 @@ const TodoList = ({ todoList, setTodoList, setDetail }) => {
     setTodoList(todoList.filter((todo) => todo.id !== id));
     setDetail({});
   };
-
-  //   // todo 수정
-  //   const updateTodoList = async (id) => {
-  //     const { data } = await todoAPI.updateTodo(id, title, content);
-  //     setTodoList(todoList.map((todo) => (todo.id === id ? data : todo)));
-  //   };
 
   return (
     <>

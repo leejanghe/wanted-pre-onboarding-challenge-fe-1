@@ -9,6 +9,8 @@ const GlobalResetStyle = createGlobalStyle`
   ${reset}
   body {
     background-color: #f5f5f5;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `;
 function App() {

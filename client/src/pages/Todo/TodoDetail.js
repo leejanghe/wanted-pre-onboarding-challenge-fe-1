@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TodoDetailContainer } from "./TodoStyle.styled";
 
 function TodoDetail({ detail }) {
@@ -6,7 +6,7 @@ function TodoDetail({ detail }) {
 
   return (
     <TodoDetailContainer>
-      <h1>Todo Detail</h1>
+      <h1>Todo 상세</h1>
       <p>제목 : {title}</p>
       <p>내용 : {content}</p>
       <p>생성일 : {createdAt.split("T")[0]}</p>

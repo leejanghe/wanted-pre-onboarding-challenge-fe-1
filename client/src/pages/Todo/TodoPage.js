@@ -10,6 +10,12 @@ function TodoPage(props) {
   const [detail, setDetail] = useState({});
   const params = useParams();
   const paramsId = params.id;
+
+  //todo수정시 useEffect
+  useEffect(() => {
+    getTodoList();
+  }, []);
+
   useEffect(() => {
     if (paramsId) {
       getTodoById(paramsId);
@@ -17,6 +23,11 @@ function TodoPage(props) {
       return;
     }
   }, [paramsId, setTodoList, todoList]);
+
+  const getTodoList = async () => {
+    const { data } = await todoAPI.getTodoList();
+    setTodoList(data);
+  };
 
   // todo 상세 todo조회
   const getTodoById = async (id) => {

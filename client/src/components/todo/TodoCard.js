@@ -22,8 +22,8 @@ function TodoCard({
         <p>{content}</p>
         <Link to={`/${id}`}>상세조회</Link>
         <div>
-          <button onClick={() => deleteTodoList(id)}>삭제</button>
           <button onClick={() => fixTodoModal(id)}>수정</button>
+          <button onClick={() => deleteTodoList(id)}>삭제</button>
         </div>
       </div>
     </TodoContainer>

@@ -17,6 +17,7 @@ export const TodoCardtWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   overflow: auto;
+  /* background: #015670; */
 `;
 
 export const ListContainer = styled.div`
@@ -90,17 +91,17 @@ export const ListContainer = styled.div`
 
 export const TodoContainer = styled.div`
   width: 100%;
-  /* height: 100%; */
-  /* height: 100vh; */
   padding: 20px;
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-bottom: 10px;
+  background: #fff;
+  height: 240px;
 
   > div {
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 200px;
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #ddd;
@@ -156,57 +157,19 @@ export const TodoDetailContainer = styled.div`
   height: 100%;
   padding: 30px;
   box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 15px;
   > h1 {
     font-size: 20px;
     font-weight: 400;
     color: #333;
     margin-bottom: 10px;
   }
-  > div {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  > p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
     margin-bottom: 10px;
-    > h3 {
-      font-size: 16px;
-      font-weight: 400;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    > p {
-      font-size: 14px;
-      font-weight: 400;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    > div {
-      button {
-        width: 100px;
-        height: 30px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 0 10px;
-        font-size: 16px;
-        font-weight: 400;
-        color: #333;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        outline: none;
-        cursor: pointer;
-        &:focus {
-          border: 1px solid #ff2959;
-        }
-        &:hover {
-          background: #ff2959;
-          color: #fff;
-        }
-      }
-    }
   }
 `;
 
